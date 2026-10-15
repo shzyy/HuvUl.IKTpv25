@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cc47a8142f6d41b78a336c5e058b8b02" Name="Diagram1">
+        <EntityTypeShape EntityType="HuviringidULModel.ArveSet" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.HuviringidSet" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.juhendajaSet" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.OsalejaSet" Width="1.5" PointX="3" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.OsalemineSet" Width="1.5" PointX="7.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.RegistreerimineSet" Width="1.5" PointX="5.25" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.RuhmSet" Width="1.5" PointX="3" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.RuumSet" Width="1.5" PointX="6" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.ToimusaegSet" Width="1.5" PointX="8.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.UritusSet" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.HuviringJyhendajaSet" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HuviringidULModel.UritusHuviringSet" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="HuviringidULModel.FK_HuviringidArve" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_RegistreerimineArve" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_HuviringidHuviringJyhendaja" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_HuviringidRegistreerimine" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_HuviringidRuhm" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_HuviringidToimusaeg" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_HuviringidUritusHuviring" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_HuviringidUritusHuviring1" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_juhendajaHuviringJyhendaja" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_OsalejaRegistreerimine" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_RegistreerimineOsalemine" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_RuhmRegistreerimine" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_RuhmToimusaeg" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_RuumToimusaeg" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_UritusUritusHuviring" ManuallyRouted="false" />
+        <AssociationConnector Association="HuviringidULModel.FK_UritusUritusHuviring1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="23373184a7c04cde8937af1ab1ab27b1" Name="Diagram1" ZoomLevel="43" >
+        <EntityTypeShape EntityType="Model2.ArveSet" Width="1.5" PointX="3" PointY="5.5" />
+        <EntityTypeShape EntityType="Model2.HuviringidSet" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="Model2.juhendajaSet" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="Model2.OsalejaSet" Width="1.5" PointX="3" PointY="15.25" />
+        <EntityTypeShape EntityType="Model2.OsalemineSet" Width="1.5" PointX="7.5" PointY="19.125" />
+        <EntityTypeShape EntityType="Model2.RegistreerimineSet" Width="1.5" PointX="5.25" PointY="14.625" />
+        <EntityTypeShape EntityType="Model2.RuhmSet" Width="1.5" PointX="3" PointY="21.625" />
+        <EntityTypeShape EntityType="Model2.RuumSet" Width="1.5" PointX="6" PointY="22.25" />
+        <EntityTypeShape EntityType="Model2.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Model2.ToimusaegSet" Width="1.5" PointX="8.25" PointY="14.75" />
+        <EntityTypeShape EntityType="Model2.UritusSet" Width="1.5" PointX="3.75" PointY="1.5" />
+        <EntityTypeShape EntityType="Model2.HuviringJyhendajaSet" Width="1.5" PointX="3" PointY="8.75" />
+        <EntityTypeShape EntityType="Model2.UritusHuviringSet" Width="1.5" PointX="6" PointY="8.375" />
+        <AssociationConnector Association="Model2.FK_HuviringidArve" />
+        <AssociationConnector Association="Model2.FK_RegistreerimineArve" />
+        <AssociationConnector Association="Model2.FK_HuviringidHuviringJyhendaja" />
+        <AssociationConnector Association="Model2.FK_HuviringidRegistreerimine" />
+        <AssociationConnector Association="Model2.FK_HuviringidRuhm" />
+        <AssociationConnector Association="Model2.FK_HuviringidToimusaeg" />
+        <AssociationConnector Association="Model2.FK_HuviringidUritusHuviring" />
+        <AssociationConnector Association="Model2.FK_HuviringidUritusHuviring1" />
+        <AssociationConnector Association="Model2.FK_juhendajaHuviringJyhendaja" />
+        <AssociationConnector Association="Model2.FK_OsalejaRegistreerimine" />
+        <AssociationConnector Association="Model2.FK_RegistreerimineOsalemine" />
+        <AssociationConnector Association="Model2.FK_RuhmRegistreerimine" />
+        <AssociationConnector Association="Model2.FK_RuhmToimusaeg" />
+        <AssociationConnector Association="Model2.FK_RuumToimusaeg" />
+        <AssociationConnector Association="Model2.FK_UritusUritusHuviring" />
+        <AssociationConnector Association="Model2.FK_UritusUritusHuviring1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

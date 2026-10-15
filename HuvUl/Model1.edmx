@@ -1,0 +1,1033 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HuviringidULModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArveSet">
+          <Key>
+            <PropertyRef Name="ArveID" />
+          </Key>
+          <Property Name="ArveID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Summa" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Makse_Stat" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Registreerimine_RegistreerimineID" Type="int" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HuviringidSet">
+          <Key>
+            <PropertyRef Name="HuviringidID" />
+          </Key>
+          <Property Name="HuviringidID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nimetus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kirjeldus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Vanusruhm" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HuviringidUL.dbo.HuviringJyhendajaSet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="HuviringJyhendajaSet">
+          <Key>
+            <PropertyRef Name="HuviringJuhendayaID" />
+            <PropertyRef Name="juhendaja_JuhendajaID" />
+            <PropertyRef Name="Huviringid_HuviringidID" />
+          </Key>
+          <Property Name="HuviringJuhendayaID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="juhendaja_JuhendajaID" Type="int" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="juhendajaSet">
+          <Key>
+            <PropertyRef Name="JuhendajaID" />
+          </Key>
+          <Property Name="JuhendajaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nimi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OsalejaSet">
+          <Key>
+            <PropertyRef Name="OsalejaID" />
+          </Key>
+          <Property Name="OsalejaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nimi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OsalemineSet">
+          <Key>
+            <PropertyRef Name="OsalemineID" />
+          </Key>
+          <Property Name="OsalemineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ToimusAeg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kuupaev" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kohal" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Registreerimine_RegistreerimineID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegistreerimineSet">
+          <Key>
+            <PropertyRef Name="RegistreerimineID" />
+          </Key>
+          <Property Name="RegistreerimineID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AlgusKuupaev" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoppPaev" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Osaleja_OsalejaID" Type="int" Nullable="false" />
+          <Property Name="Ruhm_RuhmID" Type="int" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RuhmSet">
+          <Key>
+            <PropertyRef Name="RuhmID" />
+          </Key>
+          <Property Name="RuhmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nimi" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Vanus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Maks_Osalejate" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RuumSet">
+          <Key>
+            <PropertyRef Name="RuumId" />
+          </Key>
+          <Property Name="RuumId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nimetus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="KohtadeAeg" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="ToimusaegSet">
+          <Key>
+            <PropertyRef Name="ToimusaegID" />
+          </Key>
+          <Property Name="ToimusaegID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Paev" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AlgusAeg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LoppAeg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="int" Nullable="false" />
+          <Property Name="Ruhm_RuhmID" Type="int" Nullable="false" />
+          <Property Name="Ruum_RuumId" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'HuviringidUL.dbo.UritusHuviringSet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="UritusHuviringSet">
+          <Key>
+            <PropertyRef Name="UritusHuviringID" />
+            <PropertyRef Name="UritusUritusHuviring_UritusHuviring_UritusID" />
+            <PropertyRef Name="HuviringidUritusHuviring_UritusHuviring_HuviringidID" />
+            <PropertyRef Name="Uritus_UritusID" />
+            <PropertyRef Name="Huviringid_HuviringidID" />
+          </Key>
+          <Property Name="UritusHuviringID" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UritusUritusHuviring_UritusHuviring_UritusID" Type="int" Nullable="false" />
+          <Property Name="HuviringidUritusHuviring_UritusHuviring_HuviringidID" Type="int" Nullable="false" />
+          <Property Name="Uritus_UritusID" Type="int" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UritusSet">
+          <Key>
+            <PropertyRef Name="UritusID" />
+          </Key>
+          <Property Name="UritusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kirjeldus" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Kuupaev" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="ToimusAeg" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Nimetus" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_HuviringidArve">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="ArveSet" Type="Self.ArveSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="ArveSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidHuviringJyhendaja">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="HuviringJyhendajaSet" Type="Self.HuviringJyhendajaSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="HuviringJyhendajaSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidRegistreerimine">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="RegistreerimineSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidRuhm">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="RuhmSet" Type="Self.RuhmSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="RuhmSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidToimusaeg">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="ToimusaegSet" Type="Self.ToimusaegSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="ToimusaegSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidUritusHuviring">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="HuviringidUritusHuviring_UritusHuviring_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidUritusHuviring1">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_juhendajaHuviringJyhendaja">
+          <End Role="juhendajaSet" Type="Self.juhendajaSet" Multiplicity="1" />
+          <End Role="HuviringJyhendajaSet" Type="Self.HuviringJyhendajaSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="juhendajaSet">
+              <PropertyRef Name="JuhendajaID" />
+            </Principal>
+            <Dependent Role="HuviringJyhendajaSet">
+              <PropertyRef Name="juhendaja_JuhendajaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OsalejaRegistreerimine">
+          <End Role="OsalejaSet" Type="Self.OsalejaSet" Multiplicity="1" />
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OsalejaSet">
+              <PropertyRef Name="OsalejaID" />
+            </Principal>
+            <Dependent Role="RegistreerimineSet">
+              <PropertyRef Name="Osaleja_OsalejaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistreerimineArve">
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="1" />
+          <End Role="ArveSet" Type="Self.ArveSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistreerimineSet">
+              <PropertyRef Name="RegistreerimineID" />
+            </Principal>
+            <Dependent Role="ArveSet">
+              <PropertyRef Name="Registreerimine_RegistreerimineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistreerimineOsalemine">
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="1" />
+          <End Role="OsalemineSet" Type="Self.OsalemineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistreerimineSet">
+              <PropertyRef Name="RegistreerimineID" />
+            </Principal>
+            <Dependent Role="OsalemineSet">
+              <PropertyRef Name="Registreerimine_RegistreerimineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RuhmRegistreerimine">
+          <End Role="RuhmSet" Type="Self.RuhmSet" Multiplicity="1" />
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RuhmSet">
+              <PropertyRef Name="RuhmID" />
+            </Principal>
+            <Dependent Role="RegistreerimineSet">
+              <PropertyRef Name="Ruhm_RuhmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RuhmToimusaeg">
+          <End Role="RuhmSet" Type="Self.RuhmSet" Multiplicity="1" />
+          <End Role="ToimusaegSet" Type="Self.ToimusaegSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RuhmSet">
+              <PropertyRef Name="RuhmID" />
+            </Principal>
+            <Dependent Role="ToimusaegSet">
+              <PropertyRef Name="Ruhm_RuhmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RuumToimusaeg">
+          <End Role="RuumSet" Type="Self.RuumSet" Multiplicity="1" />
+          <End Role="ToimusaegSet" Type="Self.ToimusaegSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RuumSet">
+              <PropertyRef Name="RuumId" />
+            </Principal>
+            <Dependent Role="ToimusaegSet">
+              <PropertyRef Name="Ruum_RuumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UritusUritusHuviring">
+          <End Role="UritusSet" Type="Self.UritusSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UritusSet">
+              <PropertyRef Name="UritusID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="UritusUritusHuviring_UritusHuviring_UritusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UritusUritusHuviring1">
+          <End Role="UritusSet" Type="Self.UritusSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UritusSet">
+              <PropertyRef Name="UritusID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="Uritus_UritusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HuviringidULModelStoreContainer">
+          <EntitySet Name="ArveSet" EntityType="Self.ArveSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HuviringidSet" EntityType="Self.HuviringidSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="juhendajaSet" EntityType="Self.juhendajaSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OsalejaSet" EntityType="Self.OsalejaSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OsalemineSet" EntityType="Self.OsalemineSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegistreerimineSet" EntityType="Self.RegistreerimineSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RuhmSet" EntityType="Self.RuhmSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RuumSet" EntityType="Self.RuumSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ToimusaegSet" EntityType="Self.ToimusaegSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UritusSet" EntityType="Self.UritusSet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HuviringJyhendajaSet" EntityType="Self.HuviringJyhendajaSet" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[HuviringJyhendajaSet].[HuviringJuhendayaID] AS [HuviringJuhendayaID], 
+[HuviringJyhendajaSet].[juhendaja_JuhendajaID] AS [juhendaja_JuhendajaID], 
+[HuviringJyhendajaSet].[Huviringid_HuviringidID] AS [Huviringid_HuviringidID]
+FROM [dbo].[HuviringJyhendajaSet] AS [HuviringJyhendajaSet]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UritusHuviringSet" EntityType="Self.UritusHuviringSet" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+[UritusHuviringSet].[UritusHuviringID] AS [UritusHuviringID], 
+[UritusHuviringSet].[UritusUritusHuviring_UritusHuviring_UritusID] AS [UritusUritusHuviring_UritusHuviring_UritusID], 
+[UritusHuviringSet].[HuviringidUritusHuviring_UritusHuviring_HuviringidID] AS [HuviringidUritusHuviring_UritusHuviring_HuviringidID], 
+[UritusHuviringSet].[Uritus_UritusID] AS [Uritus_UritusID], 
+[UritusHuviringSet].[Huviringid_HuviringidID] AS [Huviringid_HuviringidID]
+FROM [dbo].[UritusHuviringSet] AS [UritusHuviringSet]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_HuviringidArve" Association="Self.FK_HuviringidArve">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="ArveSet" EntitySet="ArveSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidHuviringJyhendaja" Association="Self.FK_HuviringidHuviringJyhendaja">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="HuviringJyhendajaSet" EntitySet="HuviringJyhendajaSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidRegistreerimine" Association="Self.FK_HuviringidRegistreerimine">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidRuhm" Association="Self.FK_HuviringidRuhm">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="RuhmSet" EntitySet="RuhmSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidToimusaeg" Association="Self.FK_HuviringidToimusaeg">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="ToimusaegSet" EntitySet="ToimusaegSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidUritusHuviring" Association="Self.FK_HuviringidUritusHuviring">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidUritusHuviring1" Association="Self.FK_HuviringidUritusHuviring1">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_juhendajaHuviringJyhendaja" Association="Self.FK_juhendajaHuviringJyhendaja">
+            <End Role="juhendajaSet" EntitySet="juhendajaSet" />
+            <End Role="HuviringJyhendajaSet" EntitySet="HuviringJyhendajaSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OsalejaRegistreerimine" Association="Self.FK_OsalejaRegistreerimine">
+            <End Role="OsalejaSet" EntitySet="OsalejaSet" />
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistreerimineArve" Association="Self.FK_RegistreerimineArve">
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+            <End Role="ArveSet" EntitySet="ArveSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistreerimineOsalemine" Association="Self.FK_RegistreerimineOsalemine">
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+            <End Role="OsalemineSet" EntitySet="OsalemineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RuhmRegistreerimine" Association="Self.FK_RuhmRegistreerimine">
+            <End Role="RuhmSet" EntitySet="RuhmSet" />
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RuhmToimusaeg" Association="Self.FK_RuhmToimusaeg">
+            <End Role="RuhmSet" EntitySet="RuhmSet" />
+            <End Role="ToimusaegSet" EntitySet="ToimusaegSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RuumToimusaeg" Association="Self.FK_RuumToimusaeg">
+            <End Role="RuumSet" EntitySet="RuumSet" />
+            <End Role="ToimusaegSet" EntitySet="ToimusaegSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UritusUritusHuviring" Association="Self.FK_UritusUritusHuviring">
+            <End Role="UritusSet" EntitySet="UritusSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UritusUritusHuviring1" Association="Self.FK_UritusUritusHuviring1">
+            <End Role="UritusSet" EntitySet="UritusSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HuviringidULModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ArveSet">
+          <Key>
+            <PropertyRef Name="ArveID" />
+          </Key>
+          <Property Name="ArveID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Summa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Makse_Stat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Registreerimine_RegistreerimineID" Type="Int32" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HuviringidSet" Relationship="Self.FK_HuviringidArve" FromRole="ArveSet" ToRole="HuviringidSet" />
+          <NavigationProperty Name="RegistreerimineSet" Relationship="Self.FK_RegistreerimineArve" FromRole="ArveSet" ToRole="RegistreerimineSet" />
+        </EntityType>
+        <EntityType Name="HuviringidSet">
+          <Key>
+            <PropertyRef Name="HuviringidID" />
+          </Key>
+          <Property Name="HuviringidID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nimetus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kirjeldus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Vanusruhm" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ArveSet" Relationship="Self.FK_HuviringidArve" FromRole="HuviringidSet" ToRole="ArveSet" />
+          <NavigationProperty Name="HuviringJyhendajaSet" Relationship="Self.FK_HuviringidHuviringJyhendaja" FromRole="HuviringidSet" ToRole="HuviringJyhendajaSet" />
+          <NavigationProperty Name="RegistreerimineSet" Relationship="Self.FK_HuviringidRegistreerimine" FromRole="HuviringidSet" ToRole="RegistreerimineSet" />
+          <NavigationProperty Name="RuhmSet" Relationship="Self.FK_HuviringidRuhm" FromRole="HuviringidSet" ToRole="RuhmSet" />
+          <NavigationProperty Name="ToimusaegSet" Relationship="Self.FK_HuviringidToimusaeg" FromRole="HuviringidSet" ToRole="ToimusaegSet" />
+          <NavigationProperty Name="UritusHuviringSet" Relationship="Self.FK_HuviringidUritusHuviring" FromRole="HuviringidSet" ToRole="UritusHuviringSet" />
+          <NavigationProperty Name="UritusHuviringSet1" Relationship="Self.FK_HuviringidUritusHuviring1" FromRole="HuviringidSet" ToRole="UritusHuviringSet" />
+        </EntityType>
+        <EntityType Name="juhendajaSet">
+          <Key>
+            <PropertyRef Name="JuhendajaID" />
+          </Key>
+          <Property Name="JuhendajaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nimi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="HuviringJyhendajaSet" Relationship="Self.FK_juhendajaHuviringJyhendaja" FromRole="juhendajaSet" ToRole="HuviringJyhendajaSet" />
+        </EntityType>
+        <EntityType Name="OsalejaSet">
+          <Key>
+            <PropertyRef Name="OsalejaID" />
+          </Key>
+          <Property Name="OsalejaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nimi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RegistreerimineSet" Relationship="Self.FK_OsalejaRegistreerimine" FromRole="OsalejaSet" ToRole="RegistreerimineSet" />
+        </EntityType>
+        <EntityType Name="OsalemineSet">
+          <Key>
+            <PropertyRef Name="OsalemineID" />
+          </Key>
+          <Property Name="OsalemineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ToimusAeg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kuupaev" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kohal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Registreerimine_RegistreerimineID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RegistreerimineSet" Relationship="Self.FK_RegistreerimineOsalemine" FromRole="OsalemineSet" ToRole="RegistreerimineSet" />
+        </EntityType>
+        <EntityType Name="RegistreerimineSet">
+          <Key>
+            <PropertyRef Name="RegistreerimineID" />
+          </Key>
+          <Property Name="RegistreerimineID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AlgusKuupaev" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoppPaev" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Osaleja_OsalejaID" Type="Int32" Nullable="false" />
+          <Property Name="Ruhm_RuhmID" Type="Int32" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ArveSet" Relationship="Self.FK_RegistreerimineArve" FromRole="RegistreerimineSet" ToRole="ArveSet" />
+          <NavigationProperty Name="HuviringidSet" Relationship="Self.FK_HuviringidRegistreerimine" FromRole="RegistreerimineSet" ToRole="HuviringidSet" />
+          <NavigationProperty Name="OsalejaSet" Relationship="Self.FK_OsalejaRegistreerimine" FromRole="RegistreerimineSet" ToRole="OsalejaSet" />
+          <NavigationProperty Name="OsalemineSet" Relationship="Self.FK_RegistreerimineOsalemine" FromRole="RegistreerimineSet" ToRole="OsalemineSet" />
+          <NavigationProperty Name="RuhmSet" Relationship="Self.FK_RuhmRegistreerimine" FromRole="RegistreerimineSet" ToRole="RuhmSet" />
+        </EntityType>
+        <EntityType Name="RuhmSet">
+          <Key>
+            <PropertyRef Name="RuhmID" />
+          </Key>
+          <Property Name="RuhmID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nimi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Vanus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Maks_Osalejate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HuviringidSet" Relationship="Self.FK_HuviringidRuhm" FromRole="RuhmSet" ToRole="HuviringidSet" />
+          <NavigationProperty Name="RegistreerimineSet" Relationship="Self.FK_RuhmRegistreerimine" FromRole="RuhmSet" ToRole="RegistreerimineSet" />
+          <NavigationProperty Name="ToimusaegSet" Relationship="Self.FK_RuhmToimusaeg" FromRole="RuhmSet" ToRole="ToimusaegSet" />
+        </EntityType>
+        <EntityType Name="RuumSet">
+          <Key>
+            <PropertyRef Name="RuumId" />
+          </Key>
+          <Property Name="RuumId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nimetus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="KohtadeAeg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ToimusaegSet" Relationship="Self.FK_RuumToimusaeg" FromRole="RuumSet" ToRole="ToimusaegSet" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ToimusaegSet">
+          <Key>
+            <PropertyRef Name="ToimusaegID" />
+          </Key>
+          <Property Name="ToimusaegID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Paev" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AlgusAeg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LoppAeg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="Int32" Nullable="false" />
+          <Property Name="Ruhm_RuhmID" Type="Int32" Nullable="false" />
+          <Property Name="Ruum_RuumId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HuviringidSet" Relationship="Self.FK_HuviringidToimusaeg" FromRole="ToimusaegSet" ToRole="HuviringidSet" />
+          <NavigationProperty Name="RuhmSet" Relationship="Self.FK_RuhmToimusaeg" FromRole="ToimusaegSet" ToRole="RuhmSet" />
+          <NavigationProperty Name="RuumSet" Relationship="Self.FK_RuumToimusaeg" FromRole="ToimusaegSet" ToRole="RuumSet" />
+        </EntityType>
+        <EntityType Name="UritusSet">
+          <Key>
+            <PropertyRef Name="UritusID" />
+          </Key>
+          <Property Name="UritusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kirjeldus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Kuupaev" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ToimusAeg" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Nimetus" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="UritusHuviringSet" Relationship="Self.FK_UritusUritusHuviring" FromRole="UritusSet" ToRole="UritusHuviringSet" />
+          <NavigationProperty Name="UritusHuviringSet1" Relationship="Self.FK_UritusUritusHuviring1" FromRole="UritusSet" ToRole="UritusHuviringSet" />
+        </EntityType>
+        <EntityType Name="HuviringJyhendajaSet">
+          <Key>
+            <PropertyRef Name="HuviringJuhendayaID" />
+            <PropertyRef Name="juhendaja_JuhendajaID" />
+            <PropertyRef Name="Huviringid_HuviringidID" />
+          </Key>
+          <Property Name="HuviringJuhendayaID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="juhendaja_JuhendajaID" Type="Int32" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HuviringidSet" Relationship="Self.FK_HuviringidHuviringJyhendaja" FromRole="HuviringJyhendajaSet" ToRole="HuviringidSet" />
+          <NavigationProperty Name="juhendajaSet" Relationship="Self.FK_juhendajaHuviringJyhendaja" FromRole="HuviringJyhendajaSet" ToRole="juhendajaSet" />
+        </EntityType>
+        <EntityType Name="UritusHuviringSet">
+          <Key>
+            <PropertyRef Name="UritusHuviringID" />
+            <PropertyRef Name="UritusUritusHuviring_UritusHuviring_UritusID" />
+            <PropertyRef Name="HuviringidUritusHuviring_UritusHuviring_HuviringidID" />
+            <PropertyRef Name="Uritus_UritusID" />
+            <PropertyRef Name="Huviringid_HuviringidID" />
+          </Key>
+          <Property Name="UritusHuviringID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UritusUritusHuviring_UritusHuviring_UritusID" Type="Int32" Nullable="false" />
+          <Property Name="HuviringidUritusHuviring_UritusHuviring_HuviringidID" Type="Int32" Nullable="false" />
+          <Property Name="Uritus_UritusID" Type="Int32" Nullable="false" />
+          <Property Name="Huviringid_HuviringidID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="HuviringidSet" Relationship="Self.FK_HuviringidUritusHuviring" FromRole="UritusHuviringSet" ToRole="HuviringidSet" />
+          <NavigationProperty Name="HuviringidSet1" Relationship="Self.FK_HuviringidUritusHuviring1" FromRole="UritusHuviringSet" ToRole="HuviringidSet" />
+          <NavigationProperty Name="UritusSet" Relationship="Self.FK_UritusUritusHuviring" FromRole="UritusHuviringSet" ToRole="UritusSet" />
+          <NavigationProperty Name="UritusSet1" Relationship="Self.FK_UritusUritusHuviring1" FromRole="UritusHuviringSet" ToRole="UritusSet" />
+        </EntityType>
+        <Association Name="FK_HuviringidArve">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="ArveSet" Type="Self.ArveSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="ArveSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistreerimineArve">
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="1" />
+          <End Role="ArveSet" Type="Self.ArveSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistreerimineSet">
+              <PropertyRef Name="RegistreerimineID" />
+            </Principal>
+            <Dependent Role="ArveSet">
+              <PropertyRef Name="Registreerimine_RegistreerimineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidHuviringJyhendaja">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="HuviringJyhendajaSet" Type="Self.HuviringJyhendajaSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="HuviringJyhendajaSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidRegistreerimine">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="RegistreerimineSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidRuhm">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="RuhmSet" Type="Self.RuhmSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="RuhmSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidToimusaeg">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="ToimusaegSet" Type="Self.ToimusaegSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="ToimusaegSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidUritusHuviring">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="HuviringidUritusHuviring_UritusHuviring_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HuviringidUritusHuviring1">
+          <End Role="HuviringidSet" Type="Self.HuviringidSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HuviringidSet">
+              <PropertyRef Name="HuviringidID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="Huviringid_HuviringidID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_juhendajaHuviringJyhendaja">
+          <End Role="juhendajaSet" Type="Self.juhendajaSet" Multiplicity="1" />
+          <End Role="HuviringJyhendajaSet" Type="Self.HuviringJyhendajaSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="juhendajaSet">
+              <PropertyRef Name="JuhendajaID" />
+            </Principal>
+            <Dependent Role="HuviringJyhendajaSet">
+              <PropertyRef Name="juhendaja_JuhendajaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OsalejaRegistreerimine">
+          <End Role="OsalejaSet" Type="Self.OsalejaSet" Multiplicity="1" />
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OsalejaSet">
+              <PropertyRef Name="OsalejaID" />
+            </Principal>
+            <Dependent Role="RegistreerimineSet">
+              <PropertyRef Name="Osaleja_OsalejaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RegistreerimineOsalemine">
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="1" />
+          <End Role="OsalemineSet" Type="Self.OsalemineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RegistreerimineSet">
+              <PropertyRef Name="RegistreerimineID" />
+            </Principal>
+            <Dependent Role="OsalemineSet">
+              <PropertyRef Name="Registreerimine_RegistreerimineID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RuhmRegistreerimine">
+          <End Role="RuhmSet" Type="Self.RuhmSet" Multiplicity="1" />
+          <End Role="RegistreerimineSet" Type="Self.RegistreerimineSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RuhmSet">
+              <PropertyRef Name="RuhmID" />
+            </Principal>
+            <Dependent Role="RegistreerimineSet">
+              <PropertyRef Name="Ruhm_RuhmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RuhmToimusaeg">
+          <End Role="RuhmSet" Type="Self.RuhmSet" Multiplicity="1" />
+          <End Role="ToimusaegSet" Type="Self.ToimusaegSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RuhmSet">
+              <PropertyRef Name="RuhmID" />
+            </Principal>
+            <Dependent Role="ToimusaegSet">
+              <PropertyRef Name="Ruhm_RuhmID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RuumToimusaeg">
+          <End Role="RuumSet" Type="Self.RuumSet" Multiplicity="1" />
+          <End Role="ToimusaegSet" Type="Self.ToimusaegSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RuumSet">
+              <PropertyRef Name="RuumId" />
+            </Principal>
+            <Dependent Role="ToimusaegSet">
+              <PropertyRef Name="Ruum_RuumId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UritusUritusHuviring">
+          <End Role="UritusSet" Type="Self.UritusSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UritusSet">
+              <PropertyRef Name="UritusID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="UritusUritusHuviring_UritusHuviring_UritusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UritusUritusHuviring1">
+          <End Role="UritusSet" Type="Self.UritusSet" Multiplicity="1" />
+          <End Role="UritusHuviringSet" Type="Self.UritusHuviringSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UritusSet">
+              <PropertyRef Name="UritusID" />
+            </Principal>
+            <Dependent Role="UritusHuviringSet">
+              <PropertyRef Name="Uritus_UritusID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HuviringidULEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArveSet" EntityType="Self.ArveSet" />
+          <EntitySet Name="HuviringidSet" EntityType="Self.HuviringidSet" />
+          <EntitySet Name="juhendajaSet" EntityType="Self.juhendajaSet" />
+          <EntitySet Name="OsalejaSet" EntityType="Self.OsalejaSet" />
+          <EntitySet Name="OsalemineSet" EntityType="Self.OsalemineSet" />
+          <EntitySet Name="RegistreerimineSet" EntityType="Self.RegistreerimineSet" />
+          <EntitySet Name="RuhmSet" EntityType="Self.RuhmSet" />
+          <EntitySet Name="RuumSet" EntityType="Self.RuumSet" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="ToimusaegSet" EntityType="Self.ToimusaegSet" />
+          <EntitySet Name="UritusSet" EntityType="Self.UritusSet" />
+          <EntitySet Name="HuviringJyhendajaSet" EntityType="Self.HuviringJyhendajaSet" />
+          <EntitySet Name="UritusHuviringSet" EntityType="Self.UritusHuviringSet" />
+          <AssociationSet Name="FK_HuviringidArve" Association="Self.FK_HuviringidArve">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="ArveSet" EntitySet="ArveSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistreerimineArve" Association="Self.FK_RegistreerimineArve">
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+            <End Role="ArveSet" EntitySet="ArveSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidHuviringJyhendaja" Association="Self.FK_HuviringidHuviringJyhendaja">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="HuviringJyhendajaSet" EntitySet="HuviringJyhendajaSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidRegistreerimine" Association="Self.FK_HuviringidRegistreerimine">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidRuhm" Association="Self.FK_HuviringidRuhm">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="RuhmSet" EntitySet="RuhmSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidToimusaeg" Association="Self.FK_HuviringidToimusaeg">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="ToimusaegSet" EntitySet="ToimusaegSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidUritusHuviring" Association="Self.FK_HuviringidUritusHuviring">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HuviringidUritusHuviring1" Association="Self.FK_HuviringidUritusHuviring1">
+            <End Role="HuviringidSet" EntitySet="HuviringidSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_juhendajaHuviringJyhendaja" Association="Self.FK_juhendajaHuviringJyhendaja">
+            <End Role="juhendajaSet" EntitySet="juhendajaSet" />
+            <End Role="HuviringJyhendajaSet" EntitySet="HuviringJyhendajaSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OsalejaRegistreerimine" Association="Self.FK_OsalejaRegistreerimine">
+            <End Role="OsalejaSet" EntitySet="OsalejaSet" />
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RegistreerimineOsalemine" Association="Self.FK_RegistreerimineOsalemine">
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+            <End Role="OsalemineSet" EntitySet="OsalemineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RuhmRegistreerimine" Association="Self.FK_RuhmRegistreerimine">
+            <End Role="RuhmSet" EntitySet="RuhmSet" />
+            <End Role="RegistreerimineSet" EntitySet="RegistreerimineSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RuhmToimusaeg" Association="Self.FK_RuhmToimusaeg">
+            <End Role="RuhmSet" EntitySet="RuhmSet" />
+            <End Role="ToimusaegSet" EntitySet="ToimusaegSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RuumToimusaeg" Association="Self.FK_RuumToimusaeg">
+            <End Role="RuumSet" EntitySet="RuumSet" />
+            <End Role="ToimusaegSet" EntitySet="ToimusaegSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UritusUritusHuviring" Association="Self.FK_UritusUritusHuviring">
+            <End Role="UritusSet" EntitySet="UritusSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UritusUritusHuviring1" Association="Self.FK_UritusUritusHuviring1">
+            <End Role="UritusSet" EntitySet="UritusSet" />
+            <End Role="UritusHuviringSet" EntitySet="UritusHuviringSet" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HuviringidULModelStoreContainer" CdmEntityContainer="HuviringidULEntities">
+          <EntitySetMapping Name="ArveSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.ArveSet">
+              <MappingFragment StoreEntitySet="ArveSet">
+                <ScalarProperty Name="ArveID" ColumnName="ArveID" />
+                <ScalarProperty Name="Summa" ColumnName="Summa" />
+                <ScalarProperty Name="Makse_Stat" ColumnName="Makse_Stat" />
+                <ScalarProperty Name="Registreerimine_RegistreerimineID" ColumnName="Registreerimine_RegistreerimineID" />
+                <ScalarProperty Name="Huviringid_HuviringidID" ColumnName="Huviringid_HuviringidID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HuviringidSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.HuviringidSet">
+              <MappingFragment StoreEntitySet="HuviringidSet">
+                <ScalarProperty Name="HuviringidID" ColumnName="HuviringidID" />
+                <ScalarProperty Name="Nimetus" ColumnName="Nimetus" />
+                <ScalarProperty Name="Kirjeldus" ColumnName="Kirjeldus" />
+                <ScalarProperty Name="Vanusruhm" ColumnName="Vanusruhm" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="juhendajaSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.juhendajaSet">
+              <MappingFragment StoreEntitySet="juhendajaSet">
+                <ScalarProperty Name="JuhendajaID" ColumnName="JuhendajaID" />
+                <ScalarProperty Name="Nimi" ColumnName="Nimi" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OsalejaSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.OsalejaSet">
+              <MappingFragment StoreEntitySet="OsalejaSet">
+                <ScalarProperty Name="OsalejaID" ColumnName="OsalejaID" />
+                <ScalarProperty Name="Nimi" ColumnName="Nimi" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OsalemineSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.OsalemineSet">
+              <MappingFragment StoreEntitySet="OsalemineSet">
+                <ScalarProperty Name="OsalemineID" ColumnName="OsalemineID" />
+                <ScalarProperty Name="ToimusAeg" ColumnName="ToimusAeg" />
+                <ScalarProperty Name="Kuupaev" ColumnName="Kuupaev" />
+                <ScalarProperty Name="Kohal" ColumnName="Kohal" />
+                <ScalarProperty Name="Registreerimine_RegistreerimineID" ColumnName="Registreerimine_RegistreerimineID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegistreerimineSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.RegistreerimineSet">
+              <MappingFragment StoreEntitySet="RegistreerimineSet">
+                <ScalarProperty Name="RegistreerimineID" ColumnName="RegistreerimineID" />
+                <ScalarProperty Name="AlgusKuupaev" ColumnName="AlgusKuupaev" />
+                <ScalarProperty Name="LoppPaev" ColumnName="LoppPaev" />
+                <ScalarProperty Name="Osaleja_OsalejaID" ColumnName="Osaleja_OsalejaID" />
+                <ScalarProperty Name="Ruhm_RuhmID" ColumnName="Ruhm_RuhmID" />
+                <ScalarProperty Name="Huviringid_HuviringidID" ColumnName="Huviringid_HuviringidID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RuhmSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.RuhmSet">
+              <MappingFragment StoreEntitySet="RuhmSet">
+                <ScalarProperty Name="RuhmID" ColumnName="RuhmID" />
+                <ScalarProperty Name="Nimi" ColumnName="Nimi" />
+                <ScalarProperty Name="Vanus" ColumnName="Vanus" />
+                <ScalarProperty Name="Maks_Osalejate" ColumnName="Maks_Osalejate" />
+                <ScalarProperty Name="Huviringid_HuviringidID" ColumnName="Huviringid_HuviringidID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RuumSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.RuumSet">
+              <MappingFragment StoreEntitySet="RuumSet">
+                <ScalarProperty Name="RuumId" ColumnName="RuumId" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Nimetus" ColumnName="Nimetus" />
+                <ScalarProperty Name="KohtadeAeg" ColumnName="KohtadeAeg" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="HuviringidULModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ToimusaegSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.ToimusaegSet">
+              <MappingFragment StoreEntitySet="ToimusaegSet">
+                <ScalarProperty Name="ToimusaegID" ColumnName="ToimusaegID" />
+                <ScalarProperty Name="Paev" ColumnName="Paev" />
+                <ScalarProperty Name="AlgusAeg" ColumnName="AlgusAeg" />
+                <ScalarProperty Name="LoppAeg" ColumnName="LoppAeg" />
+                <ScalarProperty Name="Huviringid_HuviringidID" ColumnName="Huviringid_HuviringidID" />
+                <ScalarProperty Name="Ruhm_RuhmID" ColumnName="Ruhm_RuhmID" />
+                <ScalarProperty Name="Ruum_RuumId" ColumnName="Ruum_RuumId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UritusSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.UritusSet">
+              <MappingFragment StoreEntitySet="UritusSet">
+                <ScalarProperty Name="UritusID" ColumnName="UritusID" />
+                <ScalarProperty Name="Kirjeldus" ColumnName="Kirjeldus" />
+                <ScalarProperty Name="Kuupaev" ColumnName="Kuupaev" />
+                <ScalarProperty Name="ToimusAeg" ColumnName="ToimusAeg" />
+                <ScalarProperty Name="Nimetus" ColumnName="Nimetus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HuviringJyhendajaSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.HuviringJyhendajaSet">
+              <MappingFragment StoreEntitySet="HuviringJyhendajaSet">
+                <ScalarProperty Name="HuviringJuhendayaID" ColumnName="HuviringJuhendayaID" />
+                <ScalarProperty Name="juhendaja_JuhendajaID" ColumnName="juhendaja_JuhendajaID" />
+                <ScalarProperty Name="Huviringid_HuviringidID" ColumnName="Huviringid_HuviringidID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UritusHuviringSet">
+            <EntityTypeMapping TypeName="HuviringidULModel.UritusHuviringSet">
+              <MappingFragment StoreEntitySet="UritusHuviringSet">
+                <ScalarProperty Name="UritusHuviringID" ColumnName="UritusHuviringID" />
+                <ScalarProperty Name="UritusUritusHuviring_UritusHuviring_UritusID" ColumnName="UritusUritusHuviring_UritusHuviring_UritusID" />
+                <ScalarProperty Name="HuviringidUritusHuviring_UritusHuviring_HuviringidID" ColumnName="HuviringidUritusHuviring_UritusHuviring_HuviringidID" />
+                <ScalarProperty Name="Uritus_UritusID" ColumnName="Uritus_UritusID" />
+                <ScalarProperty Name="Huviringid_HuviringidID" ColumnName="Huviringid_HuviringidID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
